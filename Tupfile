@@ -1,5 +1,7 @@
 include_rules
 
+ifeq (@(NETHACK),y)
+
 generated_headers += $(GITTUP_ROOT)/ncurses/include/unctrl.h
 generated_headers += $(GITTUP_ROOT)/ncurses/include/curses.h
 
@@ -18,3 +20,5 @@ CFLAGS_win/tty/termcap.c += -I$(GITTUP_ROOT)/ncurses/include
 CFLAGS_sys/share/unixtty.c += -I$(GITTUP_ROOT)/ncurses/include
 : foreach $(srcs) | $(generated_headers) |> !cc |> %B.o
 : *.o $(GITTUP_ROOT)/ncurses/ncurses/libncurses.a |> !ld |> nethack
+
+endif

@@ -1,5 +1,7 @@
 include_rules
 
+ifeq (@(NETHACK),y)
+
 : foreach ../util/dlb_main.c |> !cc |> %B.o {dlb}
 : {dlb} ../dlb.o ../alloc.o ../util/panic.o |> !ld |> dlb
 
@@ -51,3 +53,5 @@ include_rules
 : |> touch %o |> logfile
 : |> touch %o |> perm
 : |> touch %o |> record
+
+endif

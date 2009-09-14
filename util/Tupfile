@@ -1,5 +1,7 @@
 include_rules
 
+ifeq (@(NETHACK),y)
+
 : foreach makedefs.c panic.c recover.c ../src/monst.c ../src/objects.c |> !cc |> %B.o
 : makedefs.o monst.o objects.o |> !ld |> makedefs
 
@@ -8,3 +10,5 @@ include_rules
 # a few of these .c files.
 : foreach *.l |> !flex |> %B_lex.c
 : foreach *.y |> !bison |> %B.c %B.h
+
+endif

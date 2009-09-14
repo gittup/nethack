@@ -1,0 +1,8 @@
+config NETHACK
+	bool "nethack"
+	select NCURSES
+	default y
+	help
+	  .hL|
+	  .D@|
+	  -+-|
