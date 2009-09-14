@@ -1,0 +1,20 @@
+include_rules
+
+generated_headers += $(GITTUP_ROOT)/ncurses/include/unctrl.h
+generated_headers += $(GITTUP_ROOT)/ncurses/include/curses.h
+
+# TODO: Shared libs == no touch
+: util/makedefs |> %f -m && touch %o |> monstr.c
+
+srcs += monstr.c
+srcs += src/*.c
+srcs += include/vis_tab.c
+srcs += sys/share/ioctl.c
+srcs += sys/share/unixtty.c
+srcs += sys/unix/*.c
+srcs += win/tty/*.c
+
+CFLAGS_win/tty/termcap.c += -I$(GITTUP_ROOT)/ncurses/include
+CFLAGS_sys/share/unixtty.c += -I$(GITTUP_ROOT)/ncurses/include
+: foreach $(srcs) | $(generated_headers) |> !cc |> %B.o
+: *.o $(GITTUP_ROOT)/ncurses/ncurses/libncurses.a |> !ld |> nethack

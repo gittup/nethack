@@ -1,0 +1,10 @@
+include_rules
+
+: foreach makedefs.c panic.c recover.c ../src/monst.c ../src/objects.c |> !cc |> %B.o
+: makedefs.o monst.o objects.o |> !ld |> makedefs
+
+# After the foreach *.c - these are built in ../dat to avoid the circular
+# dependency with makedefs creating headers in include/, which are needed for
+# a few of these .c files.
+: foreach *.l |> !flex |> %B_lex.c
+: foreach *.y |> !bison |> %B.c %B.h
