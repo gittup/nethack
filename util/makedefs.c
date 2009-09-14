@@ -1884,7 +1884,7 @@ do_vision()
 #ifdef FILE_PREFIX
     Strcat(filename, file_prefix);
 #endif
-    Sprintf(filename, SOURCE_TEMPLATE, VIS_TAB_C);
+    Sprintf(filename, INCLUDE_TEMPLATE, VIS_TAB_C);
     if (!(ofp = fopen(filename, WRTMODE))) {
 	perror(filename);
 	Sprintf(filename, INCLUDE_TEMPLATE, VIS_TAB_H);
