@@ -1,6 +1,7 @@
 config NETHACK
 	bool "nethack"
 	select NCURSES
+	select UCLIBC_SUSV3_LEGACY
 	default y
 	help
 	  .hL|
