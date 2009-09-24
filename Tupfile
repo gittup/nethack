@@ -5,8 +5,7 @@ ifeq (@(NETHACK),y)
 generated_headers += $(GITTUP_ROOT)/ncurses/include/unctrl.h
 generated_headers += $(GITTUP_ROOT)/ncurses/include/curses.h
 
-# TODO: Shared libs == no touch
-: util/makedefs |> %f -m && touch %o |> monstr.c
+: util/makedefs |> %f -m |> monstr.c
 
 srcs += monstr.c
 srcs += src/*.c

@@ -2,10 +2,9 @@ include_rules
 
 ifeq (@(NETHACK),y)
 
-# TODO: with shared libs, no touch
-: ../util/makedefs |> %f -o && touch %o |> onames.h
-: ../util/makedefs |> %f -p && touch %o |> pm.h
-: ../util/makedefs |> %f -z && touch %o |> vis_tab.h vis_tab.c
-: ../util/makedefs |> %f -v && touch %o |> date.h
+: ../util/makedefs |> %f -o |> onames.h
+: ../util/makedefs |> %f -p |> pm.h
+: ../util/makedefs |> %f -z |> vis_tab.h vis_tab.c
+: ../util/makedefs |> %f -v |> date.h
 
 endif
