@@ -4,7 +4,7 @@ ifeq (@(NETHACK),y)
 
 : foreach ../src/alloc.c ../src/dlb.c |> !host_cc |> %B.host.o
 : foreach ../util/dlb_main.c |> !host_cc |> %B.host.o {dlb}
-: {dlb} dlb.host.o alloc.host.o ../util/panic.host.o |> !ld |> dlb
+: {dlb} dlb.host.o alloc.host.o ../util/panic.host.o |> !host_ld |> dlb
 
 : foreach ../util/dgn_comp.c ../util/dgn_comp_lex.c ../util/dgn_main.c | $(generated_headers) ../util/dgn_comp.h |> !host_cc |> %B.host.o {dgn_comp}
 : {dgn_comp} alloc.host.o ../util/panic.host.o |> !host_ld |> dgn_comp
