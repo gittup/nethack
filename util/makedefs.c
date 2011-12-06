@@ -293,6 +293,9 @@ char	*options;
 				break;
 		case 'v':
 		case 'V':	do_date();
+				break;
+		case 't':
+		case 'T':
 				do_options();
 				break;
 		case 'p':
@@ -1346,7 +1349,7 @@ do_monstr()
 #ifdef FILE_PREFIX
     Strcat(filename, file_prefix);
 #endif
-    Sprintf(eos(filename), SOURCE_TEMPLATE, MON_STR_C);
+    Sprintf(eos(filename), MON_STR_C);
     if (!(ofp = fopen(filename, WRTMODE))) {
 	perror(filename);
 	exit(EXIT_FAILURE);
@@ -1881,7 +1884,7 @@ do_vision()
 #ifdef FILE_PREFIX
     Strcat(filename, file_prefix);
 #endif
-    Sprintf(filename, SOURCE_TEMPLATE, VIS_TAB_C);
+    Sprintf(filename, INCLUDE_TEMPLATE, VIS_TAB_C);
     if (!(ofp = fopen(filename, WRTMODE))) {
 	perror(filename);
 	Sprintf(filename, INCLUDE_TEMPLATE, VIS_TAB_H);

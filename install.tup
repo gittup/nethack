@@ -1,0 +1,3 @@
+ifeq (@(NETHACK),y)
+: foreach $(TUP_CWD)/nethack |> !cp |> %b
+endif

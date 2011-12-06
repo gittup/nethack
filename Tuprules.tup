@@ -1,0 +1,8 @@
+NETHACK_ROOT = $(TUP_CWD)
+
+CFLAGS += -I$(NETHACK_ROOT)/include
+
+generated_headers += $(TUP_CWD)/include/date.h
+generated_headers += $(TUP_CWD)/include/onames.h
+generated_headers += $(TUP_CWD)/include/pm.h
+generated_headers += $(TUP_CWD)/include/vis_tab.h

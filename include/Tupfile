@@ -1,0 +1,10 @@
+include_rules
+
+ifeq (@(NETHACK),y)
+
+: ../util/makedefs |> %f -o |> onames.h
+: ../util/makedefs |> %f -p |> pm.h
+: ../util/makedefs |> %f -z |> vis_tab.h vis_tab.c
+: ../util/makedefs |> %f -v |> date.h
+
+endif
