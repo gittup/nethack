@@ -2,8 +2,8 @@ include_rules
 
 ifeq (@(NETHACK),y)
 
-: foreach makedefs.c panic.c recover.c ../src/monst.c ../src/objects.c |> !host_cc |> %B.host.o
-: makedefs.host.o monst.host.o objects.host.o |> !host_ld |> makedefs
+: foreach makedefs.c panic.c recover.c ../src/monst.c ../src/objects.c |> !host_cc -m32 |> %B.host.o
+: makedefs.host.o monst.host.o objects.host.o |> !host_ld -m32 |> makedefs
 
 # After the foreach *.c - these are built in ../dat to avoid the circular
 # dependency with makedefs creating headers in include/, which are needed for
